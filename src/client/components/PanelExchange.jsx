@@ -1,5 +1,6 @@
 import React from "react";
 import CurrencyList from "./CurrencyList.jsx";
+import PanelBase from "./PanelBase.jsx";
   
 export default class PanelExchange extends React.Component {
   render() {
@@ -7,16 +8,7 @@ export default class PanelExchange extends React.Component {
       <div className="container">
         <div className="panel-exchange">
           <div className="panel-exchange__head">
-            <h1>USD - United States Dollars</h1>
-            <div className="panel-base">
-              <div className="panel-base__left">
-                <h2>USD</h2>
-              </div>
-              <div className="panel-base__right">
-                <input type="text" id="inputCurrencyFormat" value="10.0000"/>
-                <input type="text" id="inputCurrency" className="hidden" value="100000"/>
-              </div>
-            </div>
+            <PanelBase />
           </div>
           <div className="panel-exchange__body">
             <div className="currency-body">
