@@ -1,4 +1,5 @@
 import React from "react";
+import CurrencyList from "./CurrencyList.jsx";
   
 export default class PanelExchange extends React.Component {
   render() {
@@ -19,17 +20,7 @@ export default class PanelExchange extends React.Component {
           </div>
           <div className="panel-exchange__body">
             <div className="currency-body">
-              <div className="currency-list">
-                <div className="currency-list__head">
-                  <div className="currency-list__head-left">IDR</div>
-                  <div className="currency-list__head-right">14,410.45</div>
-                </div>
-                <div className="currency-name">IDR - Indonesian Rupiah</div>
-                <div className="currency-rate">1 USD = <span>IDR 14,410.45</span></div>
-                <div className="currency-del">
-                  <button id="delCurrency">(-)</button>
-                </div>
-              </div>
+              <CurrencyList />
             </div>
             <div className="panel-exchange__add">
               <input type="text" placeholder="(+) Add More Currencies"/>
