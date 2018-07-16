@@ -30,9 +30,12 @@
         }
         &-left {
             float: left;
+            width: 45px;
         }
         &-right {
             float: right;
+            width: calc(100% - 45px);
+            text-align: right;
         }
     }
     .currency-name {
