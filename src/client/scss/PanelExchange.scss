@@ -1,0 +1,71 @@
+.panel-exchange {
+    background: #fff;
+    border: 1px solid darkgreen;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #333;
+    margin: 25px auto;
+    width: 500px;
+    @media screen and (max-width: 1023px) {
+        width: 100%;
+    }
+    &__head {
+        background: forestgreen;
+        border-bottom: 1px solid darkgreen;
+        color: white;
+        padding: 15px;
+        
+    }
+    &__body {
+        padding: 15px;
+        min-height: 500px;
+    }
+    &__add {
+        position: relative;
+        margin: 25px 0;
+        input {
+            border: 2px solid green;
+            padding: 10px;
+            padding-right: 85px;
+        }
+        button {
+            border: 0;
+            box-shadow: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 85px;
+            @media screen and (max-width: 1023px) {
+                width: 65px;
+            }
+        }
+    }
+}
+
+.panel-base {
+    overflow: hidden;
+    font-size: 2rem;
+    @media screen and (max-width: 1023px) {
+        font-size: 1.5rem;
+    }
+    &__left {
+        float: left;
+        width: 50%;
+    }
+    &__right {
+        float: right;
+        width: 50%;
+    }
+    input {
+        background: none;
+        border: 0;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        outline: none;
+        text-align: right;
+        @media screen and (max-width: 1023px) {
+            font-size: 1.5rem;
+        }
+    }
+}

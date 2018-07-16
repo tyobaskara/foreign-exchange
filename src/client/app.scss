@@ -1,12 +1,65 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    &:focus, :active {
+        outline: none;
+    }
 }
 body {
+    background: #f5f5f5;
     font-size: 62.5%;
     font-family: 'Helvetica'
 }
 .container {
     width: 1000px;
     margin: auto;
+    padding: 0 15px;
+    @media screen and (max-width: 1023px) {
+        width: 100%;
+    }
 }
+.hidden {
+    display: none !important;
+}
+h1 {
+    font-size: 1.6rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    @media screen and (max-width: 1023px) {
+        font-size: 1.2rem;
+    }
+}
+h2 {
+    font-size: 2rem;
+    @media screen and (max-width: 1023px) {
+        font-size: 1.5rem;
+    }
+}
+p,div,span,input,button {
+    font-size: 1.2rem;
+    @media screen and (max-width: 1023px) {
+        font-size: .875rem;
+    }
+}
+input {
+    width: 100%;
+}
+
+button {
+    background: #228b22;
+    box-shadow: 0 0 3px #228b22;
+    color: #fff;
+    cursor: pointer;
+    transition: all .2s ease;
+    padding: 10px;
+    &:active {
+        box-shadow: 0;
+    }
+    &:hover {
+        background: #4d994d;
+    }
+}
+
+@import './scss/PanelExchange';
+@import './scss/CurrencyList'

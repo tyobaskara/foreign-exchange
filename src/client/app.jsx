@@ -1,7 +1,7 @@
 // Node.JS
 import React from "react";
 import ReactDOM from "react-dom";
-import Nama from "./components/Nama.jsx";
+import PanelExchange from "./components/PanelExchange.jsx";
 
 class App extends React.Component {
 
@@ -14,9 +14,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>React reporting in!</h1>
-        <Nama />
+      <div>
+        <PanelExchange />
       </div>
     );
   }
