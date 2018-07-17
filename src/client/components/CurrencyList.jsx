@@ -6,6 +6,15 @@ export default class CurrencyList extends React.Component {
     }
 
     componentDidMount() {
+        this.FetchRate();
+    }
+    componentWillReceiveProps() {
+        setTimeout(() => {
+            this.FetchRate();
+        },250);
+    }
+
+    FetchRate = () => {
         let currencyPick = this.props.currency;
 
         fetch('https://exchangeratesapi.io/api/latest?base=USD&symbols=' + currencyPick)
@@ -15,9 +24,10 @@ export default class CurrencyList extends React.Component {
             this.setState({
                 rates: currency.rates[currencyPick].toFixed(4)
             })
+            console.log(this.state.rates);
         })
-    
     }
+
     render(){
         const result = (this.state.rates * this.props.currencyInput).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -30,7 +40,7 @@ export default class CurrencyList extends React.Component {
                 <div className="currency-name">{this.props.currency} - Indonesian Rupiah</div>
                 <div className="currency-rate">1 USD = <span title={'IDR ' + this.state.rates}><span>{this.props.currency}</span> {this.state.rates}</span></div>
                 <div className="currency-del">
-                    <button id="delCurrency" onClick={() => this.props.removeCurrency(this.props.currency)}>(-)</button>
+                    <button id={"delCurrency" + this.props.currency} onClick={() => this.props.removeCurrency(this.props.currency)}>(-)</button>
                 </div>
             </div>
         )

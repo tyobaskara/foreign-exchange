@@ -22,6 +22,24 @@
     &__add {
         position: relative;
         margin: 25px 0;
+        .menu {
+            background: #f3f3f3;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-height: 150px;
+            overflow: auto;
+            .item {
+                cursor: pointer;
+                padding: 5px 15px;
+                &.item-highlighted {
+                    background: #ddd;
+                }
+            }
+        }
         input {
             border: 2px solid green;
             padding: 10px;

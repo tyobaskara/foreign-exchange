@@ -1,12 +1,16 @@
 import React from "react";
 import CurrencyList from "./CurrencyList.jsx";
 import PanelBase from "./PanelBase.jsx";
+import addCurrency from "./AddCurrency.jsx";
+import AddCurrency from "./AddCurrency.jsx";
   
 export default class PanelExchange extends React.Component {
   state = {
-    currencyInput: 10000,
-    currencyInputFormat: '10.000',
-    currencyPick : ['IDR','EUR','GBP','SGD']
+    currencyInput : 10000,
+    currencyInputFormat : '10.000',
+    currencyPick : ['IDR','EUR','GBP','SGD'],
+    currencySupported : ['USD','CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
+    value : ''
   }
 
   OnChangeFormat = (value) => {
@@ -20,7 +24,6 @@ export default class PanelExchange extends React.Component {
   }
 
   removeCurrency = (currency) => {
-    console.log(currency);
     const filterOut = this.state.currencyPick.filter((val) => {
       if(val == currency) {
         return false
@@ -29,9 +32,15 @@ export default class PanelExchange extends React.Component {
         return true
       }
     })
+    console.log(filterOut);
+
     this.setState({
       currencyPick: filterOut
     })
+  }
+
+  AddCurrencyMethod = (value) => {
+    this.setState({ value })
   }
 
   render() {
@@ -39,7 +48,7 @@ export default class PanelExchange extends React.Component {
       return (
         <CurrencyList key={key} currency={val} currencyInput={this.state.currencyInput} removeCurrency={this.removeCurrency}/>
       )
-    })
+    });
 
     return (
       <div className="container">
@@ -52,8 +61,11 @@ export default class PanelExchange extends React.Component {
               { renderCurrencyList }
             </div>
             <div className="panel-exchange__add">
-              <input type="text" placeholder="(+) Add More Currencies"/>
-              <button id="addCurrency">Submit</button>
+              <AddCurrency 
+                value={this.state.value} 
+                currencySupported={this.state.currencySupported} 
+                AddCurrencyMethod={this.AddCurrencyMethod} 
+              />
             </div>
           </div>
         </div>
