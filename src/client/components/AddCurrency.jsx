@@ -8,7 +8,7 @@ export default class AddCurrency extends React.Component {
             <div>
                 <Autocomplete
                 value={this.props.value}
-                inputProps={{ id: 'states-autocomplete' }}
+                inputProps={{ id: 'states-autocomplete' , placeholder: '(+) Add More Currencies' }}
                 wrapperStyle={{ position: 'relative', display: 'block' }}
                 items={this.props.currencySupported}
                 getItemValue={(item) => item}
