@@ -1,11 +1,6 @@
 import React from "react";
 
 export default class PanelBase extends React.Component {
-    state = {
-        currencyValue: 10000,
-        currencyValueFormat: '10.000'
-    }
-
     NumberOnly = (evt) => {
         var theEvent = evt || window.event;
       
@@ -24,20 +19,6 @@ export default class PanelBase extends React.Component {
         }
     }
 
-    numberWithCommas = (x) => {
-        return 
-      }
-
-    OnChange = (value) => {
-        this.setState({
-            currencyValue: value.split('.').join('')
-        }, () => {
-            this.setState({
-                currencyValueFormat: this.state.currencyValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-            })
-        });
-    }
-
     render(){
         return(
             <div>
@@ -47,7 +28,7 @@ export default class PanelBase extends React.Component {
                         <h2>USD</h2>
                     </div>
                     <div className="panel-base__right">
-                        <input type="text" id="inputCurrency" title ={this.state.currencyValueFormat}  value={this.state.currencyValueFormat} onKeyPress={e => this.NumberOnly(e)} onChange={e => this.OnChange(e.target.value)}/>
+                        <input type="text" id="inputCurrency" title ={this.props.currencyInputFormat}  value={this.props.currencyInputFormat} onKeyPress={e => this.NumberOnly(e)} onChange={e => this.props.OnChangeFormat(e.target.value)}/>
                     </div>
                 </div>
             </div>
