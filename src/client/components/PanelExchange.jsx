@@ -8,7 +8,7 @@ export default class PanelExchange extends React.Component {
     currencyInput : 10.01,
     currencyInputFormat : '10.00',
     currencyPick : ['IDR','EUR','GBP','SGD'],
-    currencySupported : ['CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
+    currencySupported : ['CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW','EUR'],
     value : ''
   }
 
