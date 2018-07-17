@@ -49,7 +49,8 @@ export default class PanelExchange extends React.Component {
         newcurrencyPick.push(value);
         
     this.setState({
-      currencyPick: newcurrencyPick
+      currencyPick: newcurrencyPick,
+      value: ''
     })
   }
 
