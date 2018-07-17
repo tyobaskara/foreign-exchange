@@ -1,4 +1,5 @@
 import React from "react";
+import { currencyDetail } from '../lib/currency-detail.jsx';
 
 export default class CurrencyList extends React.Component {
     state = {
@@ -37,7 +38,7 @@ export default class CurrencyList extends React.Component {
                     <div className="currency-list__head-left">{this.props.currency}</div>
                     <div className="currency-list__head-right" title={result}>{result}</div>
                 </div>
-                <div className="currency-name">{this.props.currency} - Indonesian Rupiah</div>
+                <div className="currency-name">{this.props.currency} - {currencyDetail[this.props.currency]}</div>
                 <div className="currency-rate">1 USD = <span title={'IDR ' + this.state.rates}><span>{this.props.currency}</span> {this.state.rates}</span></div>
                 <div className="currency-del">
                     <button onClick={() => this.props.removeCurrency(this.props.currency)}>(-)</button>
