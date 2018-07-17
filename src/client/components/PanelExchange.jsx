@@ -61,6 +61,9 @@ export default class PanelExchange extends React.Component {
     }
     else {
       alert('oops');
+      this.setState({
+        value: ''
+      })
     }
   }
 
