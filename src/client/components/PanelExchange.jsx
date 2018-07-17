@@ -1,7 +1,6 @@
 import React from "react";
 import CurrencyList from "./CurrencyList.jsx";
 import PanelBase from "./PanelBase.jsx";
-import addCurrency from "./AddCurrency.jsx";
 import AddCurrency from "./AddCurrency.jsx";
   
 export default class PanelExchange extends React.Component {
@@ -9,7 +8,7 @@ export default class PanelExchange extends React.Component {
     currencyInput : 10.01,
     currencyInputFormat : '10.00',
     currencyPick : ['IDR','EUR','GBP','SGD'],
-    currencySupported : ['USD','CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
+    currencySupported : ['CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
     value : ''
   }
 
@@ -32,10 +31,12 @@ export default class PanelExchange extends React.Component {
         return true
       }
     })
-    console.log(filterOut);
 
+    let getBackCurrencySupported = this.state.currencySupported;
+        getBackCurrencySupported.push(currency);
     this.setState({
-      currencyPick: filterOut
+      currencyPick: filterOut,
+      currencySupported: getBackCurrencySupported
     })
   }
 
@@ -54,12 +55,32 @@ export default class PanelExchange extends React.Component {
     })
   }
 
+  removeArray = () => {
+    Array.prototype.remove= function(){
+      var what, L= arguments.length, ax;
+      while(L && this.length){
+        what= arguments[--L];
+        while((ax= this.indexOf(what))!= -1){
+          this.splice(ax, 1);
+        }
+      }
+      return this;
+    }
+
+    var a1= this.state.currencySupported, 
+        a2= this.state.currencyPick;
+    
+    return a1.remove.apply(a1,a2);
+  }
+
   render() {
     const renderCurrencyList = this.state.currencyPick.map((val,key) => {
       return (
         <CurrencyList key={key} currency={val} currencyInput={this.state.currencyInput} removeCurrency={this.removeCurrency}/>
       )
     });
+
+    const currencySupportedFiltered = this.removeArray();
 
     return (
       <div className="container">
@@ -74,7 +95,7 @@ export default class PanelExchange extends React.Component {
             <div className="panel-exchange__add">
               <AddCurrency 
                 value= {this.state.value} 
-                currencySupported= {this.state.currencySupported} 
+                currencySupported= {currencySupportedFiltered} 
                 AutoCompleteMethod= {this.AutoCompleteMethod} 
                 AddCurrency = {this.AddCurrency}
               />

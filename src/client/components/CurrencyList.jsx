@@ -25,7 +25,6 @@ export default class CurrencyList extends React.Component {
             this.setState({
                 rates: currency.rates[currencyPick].toFixed(4)
             })
-            console.log(this.state.rates);
         })
     }
 
