@@ -6,7 +6,7 @@ import AddCurrency from "./AddCurrency.jsx";
   
 export default class PanelExchange extends React.Component {
   state = {
-    currencyInput : 10,
+    currencyInput : 10.01,
     currencyInputFormat : '10.00',
     currencyPick : ['IDR','EUR','GBP','SGD'],
     currencySupported : ['USD','CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
@@ -39,8 +39,18 @@ export default class PanelExchange extends React.Component {
     })
   }
 
-  AddCurrencyMethod = (value) => {
+  AutoCompleteMethod = (value) => {
     this.setState({ value })
+  }
+
+  AddCurrency = () => {
+    let value = document.getElementById("states-autocomplete").value;
+    let newcurrencyPick = this.state.currencyPick.slice();
+        newcurrencyPick.push(value);
+        
+    this.setState({
+      currencyPick: newcurrencyPick
+    })
   }
 
   render() {
@@ -62,9 +72,10 @@ export default class PanelExchange extends React.Component {
             </div>
             <div className="panel-exchange__add">
               <AddCurrency 
-                value={this.state.value} 
-                currencySupported={this.state.currencySupported} 
-                AddCurrencyMethod={this.AddCurrencyMethod} 
+                value= {this.state.value} 
+                currencySupported= {this.state.currencySupported} 
+                AutoCompleteMethod= {this.AutoCompleteMethod} 
+                AddCurrency = {this.AddCurrency}
               />
             </div>
           </div>

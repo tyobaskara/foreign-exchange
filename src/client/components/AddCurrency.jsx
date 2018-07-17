@@ -14,8 +14,8 @@ export default class AddCurrency extends React.Component {
                 getItemValue={(item) => item}
                 shouldItemRender={matchStateToTerm}
                 sortItems={sortStates}
-                onChange={(event, value) => this.props.AddCurrencyMethod(value)}
-                onSelect={value => this.props.AddCurrencyMethod(value)}
+                onChange={(event, value) => this.props.AutoCompleteMethod(value)}
+                onSelect={value => this.props.AutoCompleteMethod(value)}
                 renderMenu={children => (
                   <div className="menu">
                     {children}
@@ -28,7 +28,7 @@ export default class AddCurrency extends React.Component {
                   >{item}</div>
                 )}
               />
-              <button id="addCurrency">Submit</button>
+              <button onClick={this.props.AddCurrency}>Submit</button>
             </div>
         )
     }
