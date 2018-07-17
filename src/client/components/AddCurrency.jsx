@@ -28,7 +28,7 @@ export default class AddCurrency extends React.Component {
                   >{item}</div>
                 )}
               />
-              <button onClick={this.props.AddCurrency}>Submit</button>
+              <button id="addCurr" onClick={this.props.AddCurrency}>Submit</button>
             </div>
         )
     }

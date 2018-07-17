@@ -45,14 +45,23 @@ export default class PanelExchange extends React.Component {
   }
 
   AddCurrency = () => {
-    let value = document.getElementById("states-autocomplete").value;
-    let newcurrencyPick = this.state.currencyPick.slice();
-        newcurrencyPick.push(value);
-        
-    this.setState({
-      currencyPick: newcurrencyPick,
-      value: ''
-    })
+    let value = document.getElementById("states-autocomplete").value.toUpperCase();;
+    let currencySupported = this.state.currencySupported.slice();
+    console.log(value);
+    console.log(currencySupported);
+
+    if(currencySupported.indexOf(value) != -1) {
+      let newcurrencyPick = this.state.currencyPick.slice();
+      newcurrencyPick.push(value);
+      
+      this.setState({
+        currencyPick: newcurrencyPick,
+        value: ''
+      })
+    }
+    else {
+      alert('oops');
+    }
   }
 
   removeArray = () => {
