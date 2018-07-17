@@ -19,10 +19,25 @@ export default class PanelExchange extends React.Component {
       });
   }
 
+  removeCurrency = (currency) => {
+    console.log(currency);
+    const filterOut = this.state.currencyPick.filter((val) => {
+      if(val == currency) {
+        return false
+      }
+      else {
+        return true
+      }
+    })
+    this.setState({
+      currencyPick: filterOut
+    })
+  }
+
   render() {
     const renderCurrencyList = this.state.currencyPick.map((val,key) => {
       return (
-        <CurrencyList key={key} currency={val} currencyInput={this.state.currencyInput}/>
+        <CurrencyList key={key} currency={val} currencyInput={this.state.currencyInput} removeCurrency={this.removeCurrency}/>
       )
     })
 
