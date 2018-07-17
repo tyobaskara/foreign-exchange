@@ -6,8 +6,8 @@ import AddCurrency from "./AddCurrency.jsx";
   
 export default class PanelExchange extends React.Component {
   state = {
-    currencyInput : 10000,
-    currencyInputFormat : '10.000',
+    currencyInput : 10,
+    currencyInputFormat : '10.00',
     currencyPick : ['IDR','EUR','GBP','SGD'],
     currencySupported : ['USD','CAD','IDR','GBP','CHF','SGD','INR','MYR','JPY','KRW'],
     value : ''
@@ -15,10 +15,10 @@ export default class PanelExchange extends React.Component {
 
   OnChangeFormat = (value) => {
       this.setState({
-          currencyInput: value.split('.').join('')
+          currencyInput: value
       }, () => {
           this.setState({
-              currencyInputFormat: this.state.currencyInput.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+              currencyInputFormat: parseFloat(this.state.currencyInput).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
           })
       });
   }

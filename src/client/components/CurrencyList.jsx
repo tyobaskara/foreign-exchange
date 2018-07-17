@@ -40,7 +40,7 @@ export default class CurrencyList extends React.Component {
                 <div className="currency-name">{this.props.currency} - Indonesian Rupiah</div>
                 <div className="currency-rate">1 USD = <span title={'IDR ' + this.state.rates}><span>{this.props.currency}</span> {this.state.rates}</span></div>
                 <div className="currency-del">
-                    <button id={"delCurrency" + this.props.currency} onClick={() => this.props.removeCurrency(this.props.currency)}>(-)</button>
+                    <button onClick={() => this.props.removeCurrency(this.props.currency)}>(-)</button>
                 </div>
             </div>
         )

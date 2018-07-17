@@ -28,7 +28,7 @@ export default class PanelBase extends React.Component {
                         <h2>USD</h2>
                     </div>
                     <div className="panel-base__right">
-                        <input type="text" id="inputCurrency" title ={this.props.currencyInputFormat}  value={this.props.currencyInputFormat} onKeyPress={e => this.NumberOnly(e)} onChange={e => this.props.OnChangeFormat(e.target.value)}/>
+                        <input type="text" title ={this.props.currencyInput} value={this.props.currencyInput} onKeyPress={e => this.NumberOnly(e)} onChange={e => this.props.OnChangeFormat(e.target.value)}/>
                     </div>
                 </div>
             </div>
